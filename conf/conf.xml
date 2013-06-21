@@ -24,13 +24,17 @@
         <ip></ip>
         <hostname></hostname>
         <cssfile>
-            <file>css.css</file>
-            <file>ie6.css</file>
+            <file>bootstrap.min.css</file>
         </cssfile>
         <jsfile>
-            <file>js.js</file>
-            <file>jquery.js</file>
-            <file>block.js</file>
+            <file>jq.js</file>
+            <file>bootstrap.min.js</file>
         </jsfile>
     </server>
+    <cache>
+        <redis>
+            <host>127.0.0.1</host>
+            <port>6379</port>
+        </redis>
+    </cache>
 </conf>

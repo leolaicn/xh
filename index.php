@@ -8,7 +8,8 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 class xh{
-    public $conf=NULL;//配置文件信息
+    public static $_conf=NULL;
+    public static $_redis=NULL;
     /**
      * 构造函数，引入配置文件
      * 启动前端控制器
@@ -16,14 +17,28 @@ class xh{
      */
     public function __construct($confFile='./conf/conf.xml') {
         //注册autoload
+        
         spl_autoload_register(array($this,'loadClass'));
         //解析配置文件信息
-        $this->conf=  simplexml_load_file($confFile);
+        $conf=  simplexml_load_file($confFile);
+        self::$_conf=$conf;
+        // 启动REDIES
+        self::$_redis=new Redis();
+        self::$_redis->connect($conf->cache->redis->host,$conf->cache->redis->port);
+        //存入常用配置信息
+        self::$_redis->set('cssfile',$conf->server->cssfile->file);
+        self::$_redis->set('jsfile',$conf->server->jsfile->file);
         //链接数据库
-        $this->dbConn($this->conf->db->host,$this->conf->db->dbname,$this->conf->db->port,$this->conf->db->username,$this->conf->db->password);
-        //解析配置文件
+        $this->dbConn(self::$_conf->db->host,self::$_conf->db->dbname,self::$_conf->db->port,self::$_conf->db->username,self::$_conf->db->password);
+        //运行控制器 
+        $controller=new frontController($_SERVER['QUERY_STRING']);
         
     }
+    
+    
+    
+    /***/
+    
     
     /**
      * 生成数据库链接
@@ -56,4 +71,3 @@ class xh{
 }
 //实例化运行
 $app=new xh();
-
