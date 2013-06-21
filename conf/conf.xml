@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--配置文件-->
+<conf>
+    <info>
+        <site_title>形婚网</site_title>
+        <status>on</status>
+        <off_info>对不起，现在进行网络维护，网站暂时关闭，请稍候！</off_info>
+        <admin_email>leolai@outlook.com</admin_email>
+        <custom_info>
+            <info>
+                <id>null</id>
+                <name>null</name>
+            </info>
+        </custom_info>
+    </info>
+    <db>
+        <host>localhost</host>
+        <dbname>xh</dbname>
+        <port>3306</port>
+        <username>root</username>
+        <password>root</password>
+    </db>
+    <server>
+        <ip></ip>
+        <hostname></hostname>
+        <cssfile>
+            <file>css.css</file>
+            <file>ie6.css</file>
+        </cssfile>
+        <jsfile>
+            <file>js.js</file>
+            <file>jquery.js</file>
+            <file>block.js</file>
+        </jsfile>
+    </server>
+</conf>
