@@ -24,7 +24,8 @@ class xh{
         self::$_conf=$conf;
         // 启动REDIES
         self::$_redis=new Redis();
-        self::$_redis->connect($conf->cache->redis->host,$conf->cache->redis->port);
+
+        self::$_redis->connect((string)$conf->cache->redis->host,(string)$conf->cache->redis->port);
         //存入常用配置信息
         self::$_redis->set('cssfile',$conf->server->cssfile->file);
         self::$_redis->set('jsfile',$conf->server->jsfile->file);

@@ -26,5 +26,14 @@ class db{
         }
         return self::$_conn;
     }
+    public static function queryAll($table,$fix,$condition=''){
+        try {
+            $re=self::$_conn->query("select * from `".$fix.$table.'` '.$condition);
+            return $re->fetchAll();
+           
+        } catch (PDOException $exc) {
+            echo $exc->getTraceAsString();
+        }
+        }
     
 }

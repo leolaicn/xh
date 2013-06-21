@@ -1,7 +1,8 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+class feedbackModel extends modelClass{
+    protected $_column=array('id',
+                          'uid',
+                          'pubtime',
+                          'content');
+    protected $_tableName='feedback';
+}
