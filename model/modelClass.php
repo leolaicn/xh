@@ -1,9 +1,13 @@
 <?php
-
-class modelClass{
-    protected $_tableName='';//表名
-    protected $_tablePreFix='xh_';
-    protected $_column;
+/**
+ * 模型抽象类
+ * @author leo lai  <leolai@outlook.com>
+ * @version 1.0
+ */
+abstract class modelClass{
+    protected static $_tableName='';//表名
+    protected static $_tablePreFix='xh_';
+    protected static $_column;
     /**
      * 获取表单所有数据的方法
      */
@@ -13,8 +17,8 @@ class modelClass{
     /**
      * 获取一个数据，根据主键
      */
-    public function getByPk(){
-        
+    public function getByPk($table,$keyid){
+        return db::queryARow($table,$keyid,self::$_tablePreFix);
         
     }
     /**

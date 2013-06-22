@@ -1,6 +1,6 @@
 <?php
 /**
- * 主入口文件
+ * 主入口文件 实例化APP
  * @author leo lai  <leolai@outlook.com>
  * @version 1.0
  */
@@ -8,8 +8,8 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 class xh{
-    public static $_conf=NULL;
-    public static $_redis=NULL;
+    public static $_conf=NULL;//存储配置文件  （预留）
+    public static $_redis=NULL;//存储redis
     /**
      * 构造函数，引入配置文件
      * 启动前端控制器
@@ -67,6 +67,9 @@ class xh{
         }else{
             include_once './tools/'.$classname.'.php';
         }
+    }
+    public function __destruct() {
+        db::$_conn=NULL;
     }
     
 }

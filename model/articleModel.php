@@ -1,7 +1,6 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 文章表模型
+ * @author leo lai  <leolai@outlook.com>
+ * @version 1.0
  */
-?>
