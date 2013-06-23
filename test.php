@@ -1,6 +1,3 @@
 <?php
-class test{
-    public static function getName(){
-        echo '12';
-    }
-}
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);

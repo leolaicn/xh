@@ -1,0 +1,13 @@
+{php}
+        foreach (explode(',',xh::$_redis->get('cssfile')) as $file) {
+            
+            echo '<link href="./bootstrap/css/'.trim($file).'" rel="stylesheet" media="screen">'.PHP_EOL;
+            
+        }
+        
+        foreach (explode(',',xh::$_redis->get('jsfile')) as $file) {
+            
+            echo '<script src="./bootstrap/js/'.trim($file).'"></script>'.PHP_EOL;
+            
+        }
+{/php}

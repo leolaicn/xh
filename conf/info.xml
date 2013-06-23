@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--配置文件-->
+<conf>
+    <info>
+        <site_title>xh网</site_title>
+        <status>on</status>
+        <off_info>对不起，现在进行网络维护，网站暂时关闭，请稍候！</off_info>
+        <admin_email>leolai@outlook.com</admin_email>
+    </info>
+    <server>
+        <ip></ip>
+        <hostname></hostname>
+        <cssfile>
+            bootstrap.min.css,bootstrap-responsive.css
+        </cssfile>
+        <jsfile>
+            jq.js,bootstrap.min.js
+        </jsfile>
+    </server>
+</conf>
