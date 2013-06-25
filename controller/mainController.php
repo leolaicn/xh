@@ -40,4 +40,20 @@ class mainController implements controllerInterface{
     public function template($page){
         //include './view/'.$this->_runController.'/'.$page;
     }
+    /**
+     * 页面跳转
+     */
+    public function urlChange($page,$info=''){
+        if($page == 404){
+            header('HTTP/1.0 404 Not Found');
+            exit();
+        }else{
+            if($info!=''){
+                echo $info;
+            }
+           
+            echo '<meta http-equiv="refresh" content=3; url=http://localhost/xh/index.php?r=page-home" />';
+            
+        }
+    }
 }

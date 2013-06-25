@@ -69,4 +69,22 @@ class db{
              echo $exc->getTraceAsString();
             }
         }
+        /**
+         *条件查询 预留接口
+         */
+        public static function queryResultByCondition($column='*',$fix='xh',$table='',$where='1',$param=array()){
+            try{
+                
+                }catch(PDOException $e){
+                echo '数据查询失败，请重试！';
+                echo $e->getTraceAsString();
+            }
+        }
+        /**
+         * 自定义查询 预留接口
+         */
+        public function normalQuery(){
+            
+        }
+        
 }

@@ -21,7 +21,7 @@ class xh {
      */
 
     public function __construct() {
-        
+        session_start();
         //注册autoload
         spl_autoload_register(array($this, 'loadClass'));
         //解析配置文件信息
@@ -95,13 +95,8 @@ class xh {
      */
     public function insertIntoRedis(SimpleXMLIterator $iterator){
         for($iterator->rewind();$iterator->valid();$iterator->next()){
-            
             if($iterator->hasChildren()){
-                echo 'is havchild';
-                echo $iterator->current();
-                echo '<br />';
                 $this->insertIntoRedis($iterator->current());
-                
             }else{
                 self::$_redis->set($iterator->key(),(string)$iterator->current());
             }
